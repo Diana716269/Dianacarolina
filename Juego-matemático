@@ -1,0 +1,84 @@
+import java.util.Scanner;
+/**
+*
+* @author diana
+*/
+public class Diana_juego_Matematico {
+ /**
+ * @param args the command line arguments
+ */
+ public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+
+ System.out.println("\n\tHOLA BIENVENIDO A MI PROGRAMA\n\nVAMOS A
+JUGAR UN JUEGO\n");
+ System.out.println("ELIJE QUE NIVEL DE DIFICULTAD QUE DESEAS\n");
+ System.out.println(">> PRIMER NIVEL ''FACIL''\nEN ESTE NIVEL DEBES
+CONTESTAR 5 PREGUNTAS ARITMETICAS ");
+ System.out.println("\n>> SEGUNDO NIVEL ''MEDIO''\nEN ESTE NIVEL DEBES
+CONTESTAR 10 PREGUNTAS ARITMETICAS ");
+ System.out.println("\n>> TERCER NIVEL ''DIFICIL''\nEN ESTE NIVEL DEBES
+CONTESTAR 15 PREGUNTAS ARITMETICAS ");
+ System.out.println("\nQUE NIVEL ELIJES ¿?\t");
+ int nivel = scanner.nextInt();
+ int preguntasCorrectas = 0;
+ int preguntasIncorrectas = 0;
+ // contador de preguntas
+ for (int i = 1;
+ i <= 5;
+ i++)
+ {
+ int a = (int) (Math.random() * (nivel == 1 ? 5 : nivel == 2 ? 10 : 15)) + 1;
+ int b = (int) (Math.random() * (nivel == 1 ? 5 : nivel == 2 ? 10 : 15)) + 1;
+ int operacion = (int) (Math.random() * 4);
+ int respuesta;
+ String operador;
+ switch (operacion) {
+ // suma
+ case 0:
+ respuesta = a + b;
+ operador = "+";
+ break;
+ // resta
+ case 1:
+ respuesta = a - b;
+ operador = "-";
+ break;
+ // multiplicacion
+ case 2:
+ respuesta = a * b;
+ operador = "*";
+ break;
+ // division
+ case 3:
+ respuesta = a / b;
+ operador = "/";
+ break;
+ default:
+ respuesta = 0;
+ operador = "";
+ break;
+ }
+ System.out.printf("PREGUNTA %d\nRESPONDE %d %s %d = ", i, a, operador, b);
+ int respuestaUsuario = scanner.nextInt();
+
+ if (respuestaUsuario == respuesta) {
+ System.out.println("RESPUESTA CORRECTA\n");
+ preguntasCorrectas++;
+ } else {
+ System.out.println("RESPUESTA INCORRECTA\n");
+
+ preguntasIncorrectas++;
+ }
+ }
+ // Mostrar resultado final al usuario
+ System.out.printf("\nFIN DEL JUEGO\nTU RESULTADO FUE\n%d ACIERTOS \n%d
+DESACIERTOS\n", preguntasCorrectas, preguntasIncorrectas);
+
+ System.out.println("\nGRACIAS POR USAR MI PROGRAMA");
+ System.out.println("\n\t\tUNIVERSIDAD TÉCNICA DE\n\t\t\t''MANABÍ''");
+
+System.out.println("DIANA_ACUNA_ESTUDIANTE_DE_TECNOLOGIAS_DE_
+LA_INFORMACIÓN\n\n");
+ }
+}
